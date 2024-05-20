@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386fbe82feb2734e97c47ff11b0e4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerExplosion: 500
-  _radius: 10
+  _powerExplosion: 300
+  _radius: 5
   _upwardModifier: 2
   _dividerMultipler: 2
   _spawnbleObject: {fileID: 3912450980455444852}

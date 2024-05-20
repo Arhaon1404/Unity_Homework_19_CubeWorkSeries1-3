@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ExplosionCube), typeof(Renderer), typeof(Rigidbody))]
