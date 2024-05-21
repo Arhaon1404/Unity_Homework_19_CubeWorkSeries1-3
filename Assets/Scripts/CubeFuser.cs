@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(ExplosionCube), typeof(Renderer), typeof(Rigidbody))]
 
-public class CubeExploder : MonoBehaviour
+public class CubeFuser : MonoBehaviour
 {
     [SerializeField] private float _powerExplosion;
     [SerializeField] private float _radius;
@@ -34,9 +34,7 @@ public class CubeExploder : MonoBehaviour
 
         foreach (Collider hit in colliders)
         {
-            Rigidbody rigidbody = hit.GetComponent<Rigidbody>();
-
-            if (rigidbody != null)
+            if (hit.TryGetComponent(out Rigidbody rigidbody))
                 rigidbody.AddExplosionForce(_powerExplosion, transform.position, _radius, _upwardModifier);
         }
 
@@ -55,13 +53,17 @@ public class CubeExploder : MonoBehaviour
         {
             for (int i = 0; i < spawnCubeCapacity; i++)
             {
-                Vector3 RandomSpawnDistance = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0, 0.5f), Random.Range(-0.5f, 0.5f));
+                float axesX = Random.Range(-0.5f, 0.5f);
+                float axesY = Random.Range(0, 0.5f);
+                float axesZ = Random.Range(-0.5f, 0.5f);
+
+                Vector3 RandomSpawnDistance = new Vector3(axesX, axesY, axesZ);
 
                 Vector3 NewSpawnPosition = _explosionCube.transform.position + RandomSpawnDistance;
 
                 ExplosionCube SpawnedObject = Instantiate(_spawnbleObject, NewSpawnPosition, transform.rotation);
 
-                SpawnedObject.IncreaseDilider(dividerSeparation);
+                SpawnedObject.DecreaseChanceSeparation(dividerSeparation);
                 SpawnedObject.DecreaseScale();
             }
         }

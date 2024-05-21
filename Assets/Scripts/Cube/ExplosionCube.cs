@@ -23,11 +23,11 @@ public class ExplosionCube : MonoBehaviour
         SetColor();
     }
 
-    public void IncreaseDilider(float number)
+    public void DecreaseChanceSeparation(float dividerSeparation)
     {
-        if (number > 0)
+        if (dividerSeparation > 0)
         {
-            _dividerSeparation = number;
+            _dividerSeparation = dividerSeparation;
 
             _chanceSeparation /= _dividerSeparation;
         }
@@ -54,10 +54,10 @@ public class ExplosionCube : MonoBehaviour
     {
         _renderer = GetComponent<Renderer>();
 
-        float RedComponent = Random.Range(0f,1f);
-        float GreenComponent = Random.Range(0f,1f);
-        float BlueComponent = Random.Range(0f,1f);
+        float redComponent = Random.Range(0f,1f);
+        float greenComponent = Random.Range(0f,1f);
+        float blueComponent = Random.Range(0f,1f);
 
-        _renderer.material.color = new Color(RedComponent, GreenComponent, BlueComponent);
+        _renderer.material.color = new Color(redComponent, greenComponent, blueComponent);
     }
 }
