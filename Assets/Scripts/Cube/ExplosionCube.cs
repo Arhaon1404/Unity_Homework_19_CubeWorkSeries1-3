@@ -9,8 +9,9 @@ public class ExplosionCube : MonoBehaviour
     private float _chanceSeparation;
     private float _dividerSeparation;
     private int _spanwCubeCapacity;
+    private bool _isSeparation;
 
-    public float ChanceSeparation => _chanceSeparation;
+    public bool IsSeparation => _isSeparation;
     public float DividerSeparation => _dividerSeparation;
     public int SpawnCubeCapacity => _spanwCubeCapacity;
 
@@ -18,6 +19,7 @@ public class ExplosionCube : MonoBehaviour
     {
         _dividerSeparation = 1;
         _chanceSeparation = 100;
+        _isSeparation = true;
         _spanwCubeCapacity = Random.Range(2,6);
 
         SetColor();
@@ -32,6 +34,7 @@ public class ExplosionCube : MonoBehaviour
             _chanceSeparation /= _dividerSeparation;
         }
 
+        IsChanceSeparation();
     }
 
     public void DestroyObject()
@@ -43,11 +46,7 @@ public class ExplosionCube : MonoBehaviour
     {
         float scaleDivider = 2;
 
-        float scaleX = transform.localScale.x / scaleDivider;
-        float scaleY = transform.localScale.y / scaleDivider;
-        float scaleZ = transform.localScale.z / scaleDivider;
-
-        transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+        transform.localScale /= scaleDivider;
     }
 
     private void SetColor()
@@ -59,5 +58,19 @@ public class ExplosionCube : MonoBehaviour
         float blueComponent = Random.Range(0f,1f);
 
         _renderer.material.color = new Color(redComponent, greenComponent, blueComponent);
+    }
+
+    private void IsChanceSeparation()
+    {
+        float spawnChance = Random.Range(0, 100);
+
+        if (spawnChance <= _chanceSeparation)
+        {
+            _isSeparation = true;
+        }
+        else
+        {
+            _isSeparation = false;
+        }
     }
 }

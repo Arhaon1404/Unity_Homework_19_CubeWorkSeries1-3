@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3096964549312281531}
   - component: {fileID: 347779534233969332}
   - component: {fileID: 3542415086566566909}
+  - component: {fileID: -6516418451522848927}
+  - component: {fileID: -8079583868398319704}
   - component: {fileID: 3912450980455444852}
   - component: {fileID: 3080202259931948932}
   m_Layer: 0
@@ -135,6 +137,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6516418451522848927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887760893298179177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8ce307e4487b2479be2acad01da18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8079583868398319704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887760893298179177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7eedb26a2943547a14566ed5df28ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnbleObject: {fileID: 3912450980455444852}
+  _dividerMultipler: 2
 --- !u!114 &3912450980455444852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +189,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _powerExplosion: 300
   _radius: 5
-  _upwardModifier: 2
-  _dividerMultipler: 2
-  _spawnbleObject: {fileID: 3912450980455444852}
+  _upwardModifier: 0.25
