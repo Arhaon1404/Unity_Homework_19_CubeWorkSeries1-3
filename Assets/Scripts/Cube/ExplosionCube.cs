@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class ExplosionCube : MonoBehaviour
 {
+    [SerializeField] private float _numberPowerModifierIncrease;
+    [SerializeField] private float _numberRadiusModifierIncrease;
+
     private Renderer _renderer;
 
     private float _chanceSeparation;
     private float _dividerSeparation;
+    private float _explosionPowerModifier;
+    private float _explosionRadiusModifier;
     private int _spanwCubeCapacity;
     private bool _isSeparation;
 
     public bool IsSeparation => _isSeparation;
     public float DividerSeparation => _dividerSeparation;
+    public float ExplosionPowerModifier => _explosionPowerModifier;
+    public float ExplosionRadiusModifier => _explosionRadiusModifier;
     public int SpawnCubeCapacity => _spanwCubeCapacity;
 
     private void Awake()
     {
         _dividerSeparation = 1;
         _chanceSeparation = 100;
+        _explosionPowerModifier = 0;
+        _explosionRadiusModifier = 0;
         _isSeparation = true;
         _spanwCubeCapacity = Random.Range(2,6);
 
         SetColor();
+    }
+
+    public void IncreaseModifiers(float parentPowerModifier, float parentRadiusModifier)
+    {
+        _explosionPowerModifier = parentPowerModifier + _numberPowerModifierIncrease;
+        _explosionRadiusModifier = parentRadiusModifier + _numberRadiusModifierIncrease;
     }
 
     public void DecreaseChanceSeparation(float dividerSeparation)
@@ -39,7 +54,7 @@ public class ExplosionCube : MonoBehaviour
 
     public void DestroyObject()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void DecreaseScale()
@@ -64,13 +79,6 @@ public class ExplosionCube : MonoBehaviour
     {
         float spawnChance = Random.Range(0, 100);
 
-        if (spawnChance <= _chanceSeparation)
-        {
-            _isSeparation = true;
-        }
-        else
-        {
-            _isSeparation = false;
-        }
+        _isSeparation = spawnChance <= _chanceSeparation;
     }
 }

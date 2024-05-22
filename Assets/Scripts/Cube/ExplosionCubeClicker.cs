@@ -19,15 +19,13 @@ public class ExplosionCubeClicker : MonoBehaviour
     {
         if (_clickbleCube.IsSeparation)
         {
-            Collider[] colliders = _explosionCubeSpawner.CreateCubes(_clickbleCube);
-
-            _fuser.Explode(colliders);
-
-            _clickbleCube.DestroyObject();
+            _explosionCubeSpawner.CreateCubes(_clickbleCube);
         }
         else
         {
-            _clickbleCube.DestroyObject();
+            _fuser.Explode(_clickbleCube.ExplosionPowerModifier,_clickbleCube.ExplosionRadiusModifier);
         }
+
+        _clickbleCube.DestroyObject();
     }
 }

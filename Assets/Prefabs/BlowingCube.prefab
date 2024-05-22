@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5999df6fab177d047a89aef1343ca388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numberPowerModifierIncrease: 50
+  _numberRadiusModifierIncrease: 2
 --- !u!114 &3080202259931948932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386fbe82feb2734e97c47ff11b0e4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerExplosion: 300
-  _radius: 5
+  _powerExplosion: 100
+  _radius: 2
   _upwardModifier: 0.25
